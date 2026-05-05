@@ -1,0 +1,498 @@
+{
+  "bins": [
+    {
+      "color": null,
+      "id": "recycling",
+      "label": "recycling — set out MGP (metal/glass/plastic/cartons) and mixed paper/cardboard in separate clear bags or labeled bins on recycling day"
+    },
+    {
+      "color": "brown",
+      "id": "compost",
+      "label": "Curbside Composting — brown bin or any labeled 55-gal bin with secure lid"
+    },
+    {
+      "color": "black",
+      "id": "landfill",
+      "label": "trash — black bin or bag, set out after 6 PM on collection day"
+    },
+    {
+      "color": null,
+      "id": "special",
+      "label": "DSNY Special Waste Drop-Off Site or retail take-back / e-waste programs"
+    }
+  ],
+  "country": "US",
+  "last_verified": "2026-05-04",
+  "name": "New York City",
+  "notes": "DSNY runs a multi-bin system: (1) Metal/Glass/Plastic/Cartons (MGP) and (2) Mixed Paper/Cardboard set out as separate clear bags or labeled bins on recycling day; (3) Curbside Composting (brown bin or labeled bin) — MANDATORY citywide as of April 1, 2025 for food scraps, food-soiled paper, and all yard waste; (4) Trash. NYC does not enforce a 3-inch minimum size or distinguish plastic resin codes — any rigid plastic is recyclable. Cartons go with MGP, not paper. Lightly-soiled pizza boxes are accepted in paper recycling; greasy ones go to compost. CFC appliances (AC units, refrigerators) require special handling before pickup. Single-family-home assumption; multi-family and 10+ unit buildings have additional storage and set-out rules.",
+  "primary_source": "https://www.nyc.gov/site/dsny/collection/get-rid-of.page",
+  "qid": "Q60",
+  "rules": [
+    {
+      "bin": "recycling",
+      "category": "rigid_plastic_1_2",
+      "prep": "empty and rinsed; resin code does not matter; place with metal/glass/cartons in clear bag or labeled bin",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "rigid_plastic_3_7",
+      "prep": "empty and rinsed; resin code does not matter; place with metal/glass/cartons in clear bag or labeled bin",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "metal_can",
+      "prep": "empty and rinsed; metal caps and lids accepted; empty aerosol and paint cans accepted",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "aluminum_foil",
+      "prep": "foil and trays accepted (clean)",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "glass_container",
+      "prep": "empty and rinsed; bottles and jars only",
+      "rejected_examples": [
+        "window glass",
+        "drinking glasses",
+        "ceramic dishware",
+        "mirrors",
+        "Pyrex"
+      ],
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "carton_beverage",
+      "prep": "empty and rinsed; goes with metal/glass/plastic, NOT with paper",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041059/https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/metal-glass-plastic-cartons.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "paper_clean",
+      "prep": "newspapers, magazines, white and colored paper (staples ok), envelopes, wrapping paper, paperback books, notebooks (metal/plastic binding removed); clear bag or labeled bin",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041143/https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "cardboard_corrugated",
+      "prep": "flatten; bundle with twine; set out next to bins or bags; do not use boxes as bins",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041143/https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "shredded_paper",
+      "prep": "with mixed paper",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041143/https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "pizza_box",
+      "conditions": [
+        {
+          "if": "lightly soiled (no large grease patches)",
+          "prep": "flatten with mixed paper",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041143/https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "greasy or heavily soiled",
+          "prep": "tear into pieces if helpful",
+          "source": {
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/residents/curbside-composting.page"
+          },
+          "then_bin": "compost"
+        }
+      ]
+    },
+    {
+      "bin": "depends",
+      "category": "paper_coated_disposable",
+      "conditions": [
+        {
+          "if": "empty and dry paper cup or container",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041143/https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/mixed-paper-cardboard.page"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "soiled or wet (used coffee cup, used ice cream container)",
+          "source": {
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/residents/trash.page"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "compost",
+      "category": "food_scrap",
+      "prep": "ALL food scraps including meat, bones, shells, dairy, prepared and cooked foods",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/curbside-composting.page"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "paper_food_soiled",
+      "prep": "greasy uncoated paper plates, food-soiled paper, napkins, towels",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/curbside-composting.page"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "yard_trimming",
+      "prep": "ALL leaf and yard waste including flowers, twigs, branches; bundle twigs with twine and place beside bins; mandatory to separate from trash",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041637/https://www.nyc.gov/site/dsny/collection/get-rid-of/plant-yard-waste.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/plant-yard-waste.page"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "compostable_plastic",
+      "prep": "products certified or labeled compostable accepted in curbside composting",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/curbside-composting.page"
+      }
+    },
+    {
+      "bin": "landfill",
+      "category": "plastic_film_and_bags",
+      "prep": "soft plastics (bags, bubble wrap, mailing envelopes, candy and snack wrappers) go in trash; NYC does not collect them via curbside take-back",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/trash.page"
+      }
+    },
+    {
+      "bin": "landfill",
+      "category": "plastic_foam",
+      "prep": "Styrofoam and packing peanuts go in trash",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/trash.page"
+      }
+    },
+    {
+      "bin": "landfill",
+      "category": "diaper_and_pet_waste",
+      "prep": "diapers, dog waste, kitty litter; bag and double-bag if heavy",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/residents/trash.page"
+      }
+    },
+    {
+      "bin": "landfill",
+      "category": "light_bulb_incandescent_led",
+      "prep": "double-bag to avoid injury; incandescent and LED go in trash",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041525/https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "light_bulb_fluorescent",
+      "conditions": [
+        {
+          "if": "you can reach a DSNY Special Waste Drop-Off Site, SAFE Disposal event, or hardware-store CFL take-back program",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041525/https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page"
+          },
+          "then_bin": "special"
+        },
+        {
+          "if": "no drop-off accessible",
+          "prep": "double-bag; CFLs contain minimal mercury so trash is legal but recycling is preferred",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041525/https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/light-bulbs.page"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "landfill",
+      "category": "battery_household",
+      "prep": "AA, AAA, C, D, and 9V alkaline batteries can go in trash (no mercury since NY State law); tape D and 9V terminals to prevent sparks",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041202/https://www.nyc.gov/site/dsny/collection/get-rid-of/batteries.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/batteries.page"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "battery_lithium",
+      "prep": "ILLEGAL in trash or recycling; tape terminals or bag individually; drop at a participating store, DSNY Special Waste Drop-Off Site, or SAFE Disposal event; covers rechargeable, lithium-ion, button-cell, and coin batteries",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041202/https://www.nyc.gov/site/dsny/collection/get-rid-of/batteries.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/batteries.page"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "electronic_small",
+      "prep": "ILLEGAL in trash or recycling under NY State Electronic Equipment Recycling Act; drop at retailer/non-profit site, Community E-Waste event, DSNY Special Waste site, SAFE Disposal event, or apartment ecycleNYC program",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041234/https://www.nyc.gov/site/dsny/collection/get-rid-of/electronics.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/electronics.page"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "electronic_large",
+      "prep": "ILLEGAL in trash or recycling; same drop-off options as small electronics; TVs, monitors, printers, scanners covered",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041234/https://www.nyc.gov/site/dsny/collection/get-rid-of/electronics.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/electronics.page"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "paint",
+      "conditions": [
+        {
+          "if": "leftover or unused architectural paint (latex, oil, stain, varnish) in original container",
+          "prep": "drop at a PaintCare site or DSNY Special Waste Drop-Off; up to 5 gal per visit",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041254/https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page"
+          },
+          "then_bin": "special"
+        },
+        {
+          "if": "small amount of paint in a near-empty container",
+          "prep": "dry out with kitty litter or newspaper, then trash",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041254/https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page"
+          },
+          "then_bin": "landfill"
+        },
+        {
+          "if": "empty and dry paint can",
+          "prep": "set out the night before recycling collection day",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041254/https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page"
+          },
+          "then_bin": "recycling"
+        }
+      ]
+    },
+    {
+      "bin": "special",
+      "category": "motor_oil",
+      "prep": "ILLEGAL in trash or recycling; service stations that change oil must accept up to 5 gal/day per person free; also accepted at DSNY Special Waste Drop-Off Sites and SAFE Disposal events",
+      "source": {
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/automotive-waste.page"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "household_chemical",
+      "conditions": [
+        {
+          "if": "container labeled 'DANGER - Corrosive' or 'DANGER - Flammable'",
+          "prep": "do not pour down drains; dry remaining product with kitty litter or absorbent material; double-bag empty container, mark 'Danger - not for recycling', then trash",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041254/https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page"
+          },
+          "then_bin": "landfill"
+        },
+        {
+          "if": "other household chemical not labeled DANGER",
+          "prep": "use up product, dry remaining liquid, then recycle empty container with metal/glass/plastic; or bring full container to a SAFE Disposal Event",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041254/https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/harmful-household-products.page"
+          },
+          "then_bin": "recycling"
+        }
+      ]
+    },
+    {
+      "bin": "special",
+      "category": "medical_sharps",
+      "prep": "regulated medical waste under NY State law; do not place in trash or recycling; use approved sharps disposal program",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505041557/https://www.nyc.gov/site/dsny/collection/get-rid-of/medical-waste.page",
+        "publisher": "NYC Department of Sanitation",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/medical-waste.page"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "textile",
+      "conditions": [
+        {
+          "if": "clean clothing, shoes, household fabrics fit for reuse or recycling",
+          "prep": "drop at a thrift store, retail take-back program, textile recycler, or community drop-off bin",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041714/https://www.nyc.gov/site/dsny/collection/get-rid-of/clothing-household-fabrics-accessories.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/clothing-household-fabrics-accessories.page"
+          },
+          "then_bin": "special"
+        },
+        {
+          "if": "soiled, wet, or unrepairable fabric",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505041714/https://www.nyc.gov/site/dsny/collection/get-rid-of/clothing-household-fabrics-accessories.page",
+            "publisher": "NYC Department of Sanitation",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.nyc.gov/site/dsny/collection/get-rid-of/clothing-household-fabrics-accessories.page"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    }
+  ],
+  "slug": "new-york-city",
+  "spec_version": "0.1",
+  "state": "NY",
+  "verification_level": "reviewed"
+}

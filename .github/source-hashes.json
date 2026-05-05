@@ -1,4 +1,11 @@
 {
+  "https://www.nyc.gov/site/dsny/collection/get-rid-of.page": {
+    "cities": [
+      "new-york-city"
+    ],
+    "hash": "22bf6021c14f539565a91441decdaee9f841f077ade161e3eb3e3e80b1934db1",
+    "last_checked": "2026-05-04"
+  },
   "https://www.recology.com/recology-san-francisco/what-goes-where/": {
     "cities": [
       "san-francisco"

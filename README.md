@@ -2,10 +2,11 @@
 
 **Open dataset of municipal recycling rules. The dataset is the project; a reference photo agent is the demo that makes it legible.**
 
-Per-jurisdiction JSON files, schema-validated, every rule cites a source URL. CC0. Two seed cities at `verification_level: reviewed`, US-only at v0.1.
+Per-jurisdiction JSON files, schema-validated, every rule cites a source URL. CC0. Three seed cities at `verification_level: reviewed`, US-only at v0.1.
 
 ```
 cities/us/ca/san-francisco.json
+cities/us/ny/new-york-city.json
 cities/us/wa/seattle.json
 ```
 
@@ -22,11 +23,12 @@ The rules vary in subtle but consequential ways: a yogurt cup is recyclable in S
 ## Coverage
 
 <!-- COVERAGE-TABLE:START -->
-2 cities — 2 reviewed.
+3 cities — 3 reviewed.
 
 | City | Country / State | Verification | Last verified | Source |
 |---|---|---|---|---|
 | San Francisco | US / CA | `reviewed` | 2026-05-04 | [recology.com](https://www.recology.com/recology-san-francisco/what-goes-where/) |
+| New York City | US / NY | `reviewed` | 2026-05-04 | [nyc.gov](https://www.nyc.gov/site/dsny/collection/get-rid-of.page) |
 | Seattle | US / WA | `reviewed` | 2026-05-04 | [seattle.gov](https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go) |
 <!-- COVERAGE-TABLE:END -->
 
@@ -55,7 +57,7 @@ Adding your city is the highest-leverage contribution. See [CONTRIBUTING.md](CON
 5. Run `binwise validate` and `binwise format` locally.
 6. Open a PR.
 
-Two cities ship as worked examples. Quality bar at launch sets the bar forever; we'd rather have 10 great cities than 100 sloppy ones.
+Three cities ship as worked examples. Quality bar at launch sets the bar forever; we'd rather have 10 great cities than 100 sloppy ones.
 
 ## Run the demo
 
