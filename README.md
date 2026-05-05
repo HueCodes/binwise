@@ -19,6 +19,17 @@ There is no open, forkable, machine-readable dataset of per-jurisdiction recycli
 
 The rules vary in subtle but consequential ways: a yogurt cup is recyclable in Seattle, conditional in SF, trash in much of NJ. Seattle accepts plastic-lined paper coffee cups in recycling when clean and dry; SF accepts B.P.I. certified compostable bags in compost while routing other compostable plastics to landfill. Apps that route a photo to a bin need this corpus.
 
+## Coverage
+
+<!-- COVERAGE-TABLE:START -->
+2 cities — 2 reviewed.
+
+| City | Country / State | Verification | Last verified | Source |
+|---|---|---|---|---|
+| San Francisco | US / CA | `reviewed` | 2026-05-04 | [recology.com](https://www.recology.com/recology-san-francisco/what-goes-where/) |
+| Seattle | US / WA | `reviewed` | 2026-05-04 | [seattle.gov](https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go) |
+<!-- COVERAGE-TABLE:END -->
+
 ## Disclaimer
 
 binwise is a community dataset, not a guarantee. Recycling rules change, sources go stale, and reasonable people interpret a photo differently. Use the dataset and the reference agent as a *guide*, not as the authoritative source for what your city accepts. When in doubt, check your hauler's page directly. The project is provided **as is, with no warranty** (see [LICENSE-DATA](LICENSE-DATA) and [LICENSE-CODE](LICENSE-CODE)). Contributors carry no liability.
@@ -67,13 +78,18 @@ The agent ingests the city's rules JSON as its system prompt (prompt-cached for 
 ## Dataset tooling
 
 ```sh
-binwise validate          # schema + taxonomy + bin-id consistency + slug/path/staleness checks
-binwise format            # rewrite files in canonical JSON form
-binwise format --check    # exit nonzero if anything would change (CI uses this)
-binwise list-cities       # what's currently in the dataset
+binwise validate                # schema + taxonomy + bin-id consistency + slug/path/staleness checks
+binwise format                  # rewrite files in canonical JSON form
+binwise format --check          # exit nonzero if anything would change (CI uses this)
+binwise list-cities             # what's currently in the dataset
+binwise taxonomy search <term>  # find an existing taxonomy category by id, name, alias, or example
+binwise coverage                # regenerate the coverage table region in this README
+binwise archive <url>           # save a URL to the Wayback Machine, print the dated snapshot URL
+binwise check-sources           # diff each city's primary_source against the committed baseline
+binwise check-sources --update  # accept current page hashes as the new baseline
 ```
 
-CI runs `validate` and `format --check` on every PR.
+CI runs `validate`, `format --check`, and `coverage --check` on every PR. A scheduled workflow runs `check-sources` daily and opens a GitHub issue when an upstream source diverges from the committed baseline.
 
 ## Design
 

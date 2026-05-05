@@ -160,5 +160,160 @@ def format_cmd(check: bool) -> None:
         click.echo(f"formatted: {path.relative_to(v.REPO_ROOT)}")
 
 
+def _render_coverage_section() -> str:
+    import json as _json
+    from collections import Counter
+    from urllib.parse import urlparse
+
+    from . import validate as v
+
+    cities = []
+    for path in sorted(v.CITIES_DIR.rglob("*.json")):
+        d = _json.loads(path.read_text())
+        cities.append(d)
+
+    counts = Counter(c["verification_level"] for c in cities)
+    levels = ["resident_confirmed", "reviewed", "unverified"]
+    summary_bits = [f"{counts.get(lv, 0)} {lv}" for lv in levels if counts.get(lv, 0)]
+    summary = f"{len(cities)} cities — " + ", ".join(summary_bits) + "."
+
+    rows = ["| City | Country / State | Verification | Last verified | Source |", "|---|---|---|---|---|"]
+    for c in sorted(cities, key=lambda c: (c["country"], c.get("state") or "", c["name"])):
+        host = urlparse(c["primary_source"]).netloc.removeprefix("www.")
+        loc = f"{c['country']} / {c.get('state') or '-'}"
+        rows.append(
+            f"| {c['name']} | {loc} | `{c['verification_level']}` "
+            f"| {c.get('last_verified', '')} | [{host}]({c['primary_source']}) |"
+        )
+    return summary + "\n\n" + "\n".join(rows)
+
+
+def _splice_coverage_table(readme: str, section: str) -> str:
+    start, end = "<!-- COVERAGE-TABLE:START -->", "<!-- COVERAGE-TABLE:END -->"
+    if start not in readme or end not in readme:
+        raise click.ClickException(f"README is missing the coverage-table markers ({start} ... {end})")
+    head, _, rest = readme.partition(start)
+    _, _, tail = rest.partition(end)
+    return f"{head}{start}\n{section}\n{end}{tail}"
+
+
+@main.command("coverage")
+@click.option("--check", is_flag=True, help="Don't rewrite; exit nonzero if README's coverage table is stale.")
+def coverage_cmd(check: bool) -> None:
+    """Regenerate the auto-generated coverage table region in README.md."""
+    from . import validate as v
+
+    readme_path = v.REPO_ROOT / "README.md"
+    current = readme_path.read_text()
+    new = _splice_coverage_table(current, _render_coverage_section())
+    if check:
+        if new != current:
+            click.echo("README coverage table is stale; run `binwise coverage` to regenerate.", err=True)
+            raise SystemExit(1)
+        click.echo("coverage table up to date")
+        return
+    if new == current:
+        click.echo("no changes")
+        return
+    readme_path.write_text(new)
+    click.echo("README coverage table regenerated")
+
+
+@main.command("archive")
+@click.argument("url")
+def archive_cmd(url: str) -> None:
+    """Save a URL to the Wayback Machine and print the dated snapshot URL."""
+    from . import wayback
+
+    try:
+        snapshot = wayback.save(url)
+    except wayback.ArchiveError as e:
+        click.echo(f"archive failed: {e}", err=True)
+        sys.exit(1)
+    click.echo(snapshot)
+
+
+@main.group()
+def taxonomy() -> None:
+    """Inspect the material taxonomy."""
+
+
+@taxonomy.command("search")
+@click.argument("term")
+def taxonomy_search_cmd(term: str) -> None:
+    """Search taxonomy categories by id, name, alias, or example."""
+    import json as _json
+
+    from . import validate as v
+
+    data = _json.loads(v.TAXONOMY_PATH.read_text())
+    q = term.lower()
+    hits: list[tuple[int, dict]] = []
+    for cat in data["categories"]:
+        score = 0
+        if cat["id"] == q:
+            score = 100
+        elif cat["name"].lower() == q:
+            score = 90
+        elif q in cat["id"] or q in cat["name"].lower():
+            score = 50
+        for alias in cat.get("aliases", []):
+            al = alias.lower()
+            if al == q:
+                score = max(score, 70)
+            elif q in al:
+                score = max(score, 30)
+        for example in cat.get("examples", []):
+            if q in example.lower():
+                score = max(score, 25)
+        if score > 0:
+            hits.append((score, cat))
+
+    hits.sort(key=lambda x: (-x[0], x[1]["id"]))
+    if not hits:
+        click.echo(f"no matches for {term!r} in taxonomy.json", err=True)
+        sys.exit(1)
+
+    for _, cat in hits:
+        click.echo(click.style(cat["id"], bold=True) + f"  {cat['name']}")
+        if cat.get("aliases"):
+            click.echo(f"  aliases: {', '.join(cat['aliases'])}")
+        if cat.get("examples"):
+            click.echo(f"  examples: {', '.join(cat['examples'])}")
+
+
+@main.command("check-sources")
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Treat current page hashes as the new baseline (rewrites .github/source-hashes.json).",
+)
+@click.option("--json", "as_json", is_flag=True, help="Emit machine-readable JSON instead of human output.")
+def check_sources_cmd(update: bool, as_json: bool) -> None:
+    """Diff each city's primary_source against the baseline; alert on drift."""
+    from . import source_check as sc
+
+    diffs = sc.check(update=update)
+
+    if as_json:
+        click.echo(sc.diffs_to_json(diffs), nl=False)
+    else:
+        for d in diffs:
+            cities = ", ".join(d.cities)
+            if d.state == "unchanged":
+                click.echo(f"  ok        {d.url}  ({cities})")
+            elif d.state == "new":
+                click.echo(click.style(f"  baselined {d.url}  ({cities})", fg="cyan"))
+            elif d.state == "changed":
+                color = "green" if update else "red"
+                action = "rebaselined" if update else "DRIFT"
+                click.echo(click.style(f"  {action:9s} {d.url}  ({cities})", fg=color))
+            elif d.state == "http_error":
+                click.echo(click.style(f"  ERROR     {d.url}  ({cities})  {d.error}", fg="red"))
+
+    if not update and not as_json and sc.has_drift(diffs):
+        raise SystemExit(1)
+
+
 if __name__ == "__main__":
     main()

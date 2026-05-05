@@ -27,6 +27,8 @@ jobs:
         run: binwise validate
       - name: Check canonical formatting
         run: binwise format --check
+      - name: Coverage table up to date
+        run: binwise coverage --check
       - name: Run smoke tests
         run: pytest -q
 

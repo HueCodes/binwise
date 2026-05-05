@@ -1,0 +1,16 @@
+{
+  "https://www.recology.com/recology-san-francisco/what-goes-where/": {
+    "cities": [
+      "san-francisco"
+    ],
+    "hash": "84467c91b57f2b45c45fd81274d4295d110eeb6f893222347b422a781309ce3a",
+    "last_checked": "2026-05-04"
+  },
+  "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go": {
+    "cities": [
+      "seattle"
+    ],
+    "hash": "b3fca89f8feba8afab3bfb31c9befd772be2224a4e0708af82a03adf2a0fec90",
+    "last_checked": "2026-05-04"
+  }
+}
