@@ -1,0 +1,508 @@
+{
+  "categories": [
+    {
+      "aliases": [
+        "#1",
+        "#2",
+        "PET",
+        "PETE",
+        "HDPE",
+        "polyethylene terephthalate",
+        "high-density polyethylene"
+      ],
+      "calrecycle_type": "PET Containers / HDPE Containers",
+      "examples": [
+        "water bottle",
+        "soda bottle",
+        "milk jug",
+        "shampoo bottle",
+        "laundry detergent jug"
+      ],
+      "id": "rigid_plastic_1_2",
+      "name": "Rigid plastic containers, resin codes #1 (PET) and #2 (HDPE)"
+    },
+    {
+      "aliases": [
+        "#3",
+        "#4",
+        "#5",
+        "#6",
+        "#7",
+        "PVC",
+        "LDPE",
+        "PP",
+        "PS",
+        "polypropylene",
+        "polystyrene rigid",
+        "yogurt cup",
+        "tub plastic"
+      ],
+      "calrecycle_type": "Other Plastic Containers",
+      "examples": [
+        "yogurt cup",
+        "margarine tub",
+        "deli container",
+        "rigid clamshell"
+      ],
+      "id": "rigid_plastic_3_7",
+      "name": "Rigid plastic containers, resin codes #3 through #7"
+    },
+    {
+      "aliases": [
+        "plastic bag",
+        "plastic wrap",
+        "shrink wrap",
+        "bread bag",
+        "produce bag",
+        "ziploc"
+      ],
+      "calrecycle_type": "Film Plastic",
+      "examples": [
+        "grocery bag",
+        "sandwich bag",
+        "stretch wrap",
+        "bubble wrap"
+      ],
+      "id": "plastic_film_and_bags",
+      "name": "Plastic film, wrap, and bags"
+    },
+    {
+      "aliases": [
+        "styrofoam",
+        "EPS",
+        "expanded polystyrene",
+        "foam packaging",
+        "foam cup"
+      ],
+      "calrecycle_type": "Foam Polystyrene",
+      "examples": [
+        "foam takeout container",
+        "foam packing peanut",
+        "foam coffee cup"
+      ],
+      "id": "plastic_foam",
+      "name": "Expanded polystyrene foam (Styrofoam)"
+    },
+    {
+      "aliases": [
+        "soda can",
+        "beer can",
+        "tin can",
+        "soup can",
+        "tuna can"
+      ],
+      "calrecycle_type": "Tin / Steel Cans / Aluminum Cans",
+      "examples": [
+        "aluminum beverage can",
+        "steel soup can",
+        "pet food can"
+      ],
+      "id": "metal_can",
+      "name": "Steel and aluminum food and beverage cans"
+    },
+    {
+      "aliases": [
+        "foil",
+        "tin foil",
+        "foil tray",
+        "foil pan",
+        "foil ball"
+      ],
+      "calrecycle_type": "Aluminum Foil and Foil Containers",
+      "examples": [
+        "used aluminum foil",
+        "disposable lasagna pan"
+      ],
+      "id": "aluminum_foil",
+      "name": "Aluminum foil and disposable foil pans"
+    },
+    {
+      "aliases": [
+        "glass bottle",
+        "glass jar",
+        "wine bottle",
+        "beer bottle",
+        "pasta sauce jar"
+      ],
+      "calrecycle_type": "Container Glass",
+      "examples": [
+        "wine bottle",
+        "mason jar",
+        "pickle jar"
+      ],
+      "id": "glass_container",
+      "name": "Glass bottles and jars"
+    },
+    {
+      "aliases": [
+        "window glass",
+        "drinking glass",
+        "Pyrex",
+        "ceramic",
+        "mirror"
+      ],
+      "calrecycle_type": "Other Glass",
+      "examples": [
+        "broken drinking glass",
+        "ceramic mug",
+        "mirror shard"
+      ],
+      "id": "glass_other",
+      "name": "Non-container glass (window, ceramic, drinkware, Pyrex)"
+    },
+    {
+      "aliases": [
+        "newspaper",
+        "office paper",
+        "junk mail",
+        "magazine",
+        "catalog",
+        "envelope"
+      ],
+      "calrecycle_type": "Newspaper / Office Paper / Magazines and Catalogs",
+      "examples": [
+        "newspaper",
+        "printer paper",
+        "junk mail",
+        "magazine"
+      ],
+      "id": "paper_clean",
+      "name": "Clean paper (newsprint, office, mail, magazines)"
+    },
+    {
+      "aliases": [
+        "cardboard",
+        "OCC",
+        "corrugated",
+        "shipping box"
+      ],
+      "calrecycle_type": "Old Corrugated Cardboard",
+      "examples": [
+        "Amazon box",
+        "moving box",
+        "appliance box"
+      ],
+      "id": "cardboard_corrugated",
+      "name": "Corrugated cardboard"
+    },
+    {
+      "aliases": [
+        "milk carton",
+        "juice box",
+        "tetra pak",
+        "aseptic carton",
+        "gable top"
+      ],
+      "calrecycle_type": "Aseptic Containers and Gable-Top Cartons",
+      "examples": [
+        "milk carton",
+        "soup carton",
+        "almond milk carton",
+        "juice box"
+      ],
+      "id": "carton_beverage",
+      "name": "Plastic-coated paper beverage cartons (gable-top and aseptic)"
+    },
+    {
+      "aliases": [
+        "paper cup",
+        "coffee cup",
+        "ice cream pint",
+        "wax paper",
+        "plastic-lined paper"
+      ],
+      "calrecycle_type": "Other Miscellaneous Paper",
+      "examples": [
+        "paper coffee cup",
+        "ice cream pint container",
+        "wax-lined produce box"
+      ],
+      "id": "paper_coated_disposable",
+      "name": "Plastic-lined disposable paper (coffee cups, ice cream containers, wax-coated)"
+    },
+    {
+      "aliases": [
+        "napkin",
+        "paper towel",
+        "paper plate",
+        "greasy pizza box",
+        "uncoated paper takeout"
+      ],
+      "calrecycle_type": "Remainder Composite Paper",
+      "examples": [
+        "used paper napkin",
+        "soiled paper towel",
+        "uncoated paper plate"
+      ],
+      "id": "paper_food_soiled",
+      "name": "Food-soiled or compostable paper"
+    },
+    {
+      "aliases": [
+        "pizza box"
+      ],
+      "calrecycle_type": "Old Corrugated Cardboard",
+      "examples": [
+        "delivery pizza box"
+      ],
+      "id": "pizza_box",
+      "name": "Pizza box (corrugated cardboard with food contact)"
+    },
+    {
+      "aliases": [
+        "food scraps",
+        "kitchen waste",
+        "leftovers",
+        "compost food"
+      ],
+      "calrecycle_type": "Food",
+      "examples": [
+        "banana peel",
+        "chicken bones",
+        "leftover rice",
+        "moldy cheese"
+      ],
+      "id": "food_scrap",
+      "name": "Food waste (all foods including meat, bones, dairy, citrus)"
+    },
+    {
+      "aliases": [
+        "yard waste",
+        "leaves",
+        "grass clippings",
+        "branches",
+        "prunings"
+      ],
+      "calrecycle_type": "Leaves and Grass / Prunings and Trimmings",
+      "examples": [
+        "raked leaves",
+        "lawn clippings",
+        "tree branches"
+      ],
+      "id": "yard_trimming",
+      "name": "Yard waste (leaves, grass, prunings)"
+    },
+    {
+      "aliases": [
+        "PLA",
+        "BPI compostable",
+        "compostable utensil",
+        "compostable cup",
+        "bioplastic"
+      ],
+      "calrecycle_type": "Other Miscellaneous Plastic",
+      "examples": [
+        "BPI-certified compostable cup",
+        "PLA fork",
+        "compostable straw"
+      ],
+      "id": "compostable_plastic",
+      "name": "Certified compostable plastics (PLA, BPI-certified)"
+    },
+    {
+      "aliases": [
+        "clothing",
+        "fabric",
+        "cloth",
+        "old shirt"
+      ],
+      "calrecycle_type": "Textiles",
+      "examples": [
+        "worn-out t-shirt",
+        "torn jeans",
+        "rags"
+      ],
+      "id": "textile",
+      "name": "Textiles and clothing"
+    },
+    {
+      "aliases": [
+        "AA",
+        "AAA",
+        "C",
+        "D",
+        "9V",
+        "alkaline battery",
+        "button battery"
+      ],
+      "calrecycle_type": "Major Appliances and White Goods (battery sub-stream)",
+      "examples": [
+        "AA alkaline",
+        "remote control batteries"
+      ],
+      "id": "battery_household",
+      "name": "Household alkaline and small batteries"
+    },
+    {
+      "aliases": [
+        "Li-ion",
+        "lithium battery",
+        "laptop battery",
+        "phone battery",
+        "vape battery"
+      ],
+      "calrecycle_type": "Other E-Waste",
+      "examples": [
+        "laptop battery pack",
+        "phone battery",
+        "disposable vape"
+      ],
+      "id": "battery_lithium",
+      "name": "Lithium-ion and rechargeable batteries (separate hazardous handling)"
+    },
+    {
+      "aliases": [
+        "small electronics",
+        "phone",
+        "cable",
+        "charger",
+        "headphones",
+        "remote"
+      ],
+      "calrecycle_type": "Brown Goods / Small Electronics",
+      "examples": [
+        "old phone",
+        "USB cable",
+        "broken headphones"
+      ],
+      "id": "electronic_small",
+      "name": "Small electronics (phones, cables, peripherals)"
+    },
+    {
+      "aliases": [
+        "large electronics",
+        "TV",
+        "monitor",
+        "computer",
+        "printer"
+      ],
+      "calrecycle_type": "Brown Goods / Large Electronics",
+      "examples": [
+        "CRT TV",
+        "broken monitor",
+        "old desktop"
+      ],
+      "id": "electronic_large",
+      "name": "Large electronics (TVs, monitors, computers)"
+    },
+    {
+      "aliases": [
+        "latex paint",
+        "oil paint",
+        "house paint"
+      ],
+      "calrecycle_type": "Paint and Paint-Related Material",
+      "examples": [
+        "half-empty paint can",
+        "spray paint"
+      ],
+      "id": "paint",
+      "name": "Paint (latex and oil-based)"
+    },
+    {
+      "aliases": [
+        "motor oil",
+        "engine oil",
+        "oil filter"
+      ],
+      "calrecycle_type": "Used Oil",
+      "examples": [
+        "bottle of used oil from oil change"
+      ],
+      "id": "motor_oil",
+      "name": "Used motor oil and oil filters"
+    },
+    {
+      "aliases": [
+        "solvent",
+        "cleaner",
+        "pesticide",
+        "bleach",
+        "ammonia",
+        "drain cleaner"
+      ],
+      "calrecycle_type": "Household Hazardous Waste — Other",
+      "examples": [
+        "bleach bottle",
+        "weed killer",
+        "drain opener"
+      ],
+      "id": "household_chemical",
+      "name": "Household solvents, cleaners, pesticides"
+    },
+    {
+      "aliases": [
+        "CFL",
+        "fluorescent tube",
+        "fluorescent bulb"
+      ],
+      "calrecycle_type": "Fluorescent Tubes",
+      "examples": [
+        "spent CFL",
+        "broken fluorescent tube"
+      ],
+      "id": "light_bulb_fluorescent",
+      "name": "Fluorescent and CFL bulbs (contain mercury)"
+    },
+    {
+      "aliases": [
+        "incandescent",
+        "LED",
+        "halogen",
+        "light bulb"
+      ],
+      "calrecycle_type": "Other Miscellaneous Glass",
+      "examples": [
+        "burnt-out incandescent",
+        "old LED bulb"
+      ],
+      "id": "light_bulb_incandescent_led",
+      "name": "Incandescent and LED bulbs"
+    },
+    {
+      "aliases": [
+        "needle",
+        "lancet",
+        "syringe",
+        "sharps"
+      ],
+      "calrecycle_type": "Medical Waste",
+      "examples": [
+        "insulin needle",
+        "diabetic lancet"
+      ],
+      "id": "medical_sharps",
+      "name": "Medical sharps (needles, lancets)"
+    },
+    {
+      "aliases": [
+        "diaper",
+        "pet waste",
+        "cat litter",
+        "dog poop"
+      ],
+      "calrecycle_type": "Disposable Diapers / Pet Waste",
+      "examples": [
+        "soiled diaper",
+        "bagged cat litter",
+        "bagged dog waste"
+      ],
+      "id": "diaper_and_pet_waste",
+      "name": "Diapers, pet waste, and bagged hygiene products"
+    },
+    {
+      "aliases": [
+        "shredded paper",
+        "paper shreds"
+      ],
+      "calrecycle_type": "Other Miscellaneous Paper",
+      "examples": [
+        "bag of shredded mail"
+      ],
+      "id": "shredded_paper",
+      "name": "Shredded paper"
+    }
+  ],
+  "derived_from": "CalRecycle Material Type list (https://www2.calrecycle.ca.gov/WasteCharacterization/MaterialType)",
+  "spec_version": "0.1"
+}

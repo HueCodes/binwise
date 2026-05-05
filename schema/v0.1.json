@@ -1,0 +1,314 @@
+{
+  "$defs": {
+    "bin_definition": {
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/bin_id"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ],
+      "type": "object"
+    },
+    "bin_id": {
+      "description": "Closed routing vocabulary.",
+      "enum": [
+        "recycling",
+        "compost",
+        "landfill",
+        "hazardous",
+        "special"
+      ],
+      "type": "string"
+    },
+    "bin_id_or_depends": {
+      "enum": [
+        "recycling",
+        "compost",
+        "landfill",
+        "hazardous",
+        "special",
+        "depends"
+      ],
+      "type": "string"
+    },
+    "condition": {
+      "additionalProperties": false,
+      "properties": {
+        "if": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prep": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "then_bin": {
+          "$ref": "#/$defs/bin_id"
+        }
+      },
+      "required": [
+        "if",
+        "then_bin",
+        "source"
+      ],
+      "type": "object"
+    },
+    "edge_case": {
+      "additionalProperties": false,
+      "properties": {
+        "bin": {
+          "$ref": "#/$defs/bin_id"
+        },
+        "item": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prep": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "why": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "item",
+        "bin",
+        "why",
+        "source"
+      ],
+      "type": "object"
+    },
+    "rule": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "description": "Unconditional rules require a source; conditional rules carry sources on each condition.",
+          "else": {
+            "not": {
+              "required": [
+                "conditions"
+              ]
+            },
+            "required": [
+              "source"
+            ]
+          },
+          "if": {
+            "properties": {
+              "bin": {
+                "const": "depends"
+              }
+            },
+            "required": [
+              "bin"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "source"
+              ]
+            },
+            "required": [
+              "conditions"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "bin": {
+          "$ref": "#/$defs/bin_id_or_depends"
+        },
+        "category": {
+          "description": "Category id; must exist in taxonomy.json.",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "$ref": "#/$defs/condition"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "prep": {
+          "type": "string"
+        },
+        "rejected_examples": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      },
+      "required": [
+        "category",
+        "bin"
+      ],
+      "type": "object"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "publisher": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "retrieved": {
+          "format": "date",
+          "type": "string"
+        },
+        "source_license": {
+          "enum": [
+            "cc0",
+            "cc_by",
+            "cc_by_sa",
+            "proprietary",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "retrieved",
+        "publisher",
+        "source_license"
+      ],
+      "type": "object"
+    },
+    "verification_level": {
+      "enum": [
+        "unverified",
+        "reviewed",
+        "resident_confirmed"
+      ],
+      "type": "string"
+    }
+  },
+  "$id": "https://binwise.org/schema/v0.1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A municipal recycling ruleset for one jurisdiction. See DESIGN.md.",
+  "properties": {
+    "bins": {
+      "description": "Bins available to residents in this jurisdiction.",
+      "items": {
+        "$ref": "#/$defs/bin_definition"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "country": {
+      "description": "ISO 3166-1 alpha-2 country code.",
+      "pattern": "^[A-Z]{2}$",
+      "type": "string"
+    },
+    "edge_cases": {
+      "description": "Items that override naive identification within this jurisdiction.",
+      "items": {
+        "$ref": "#/$defs/edge_case"
+      },
+      "type": "array"
+    },
+    "last_verified": {
+      "description": "Date a human last read every rule against its source and confirmed.",
+      "format": "date",
+      "type": "string"
+    },
+    "name": {
+      "description": "Human-readable name of the jurisdiction.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "notes": {
+      "description": "Free-text jurisdiction-wide notes (multi-hauler caveats, multi-family flags, etc.).",
+      "type": "string"
+    },
+    "primary_source": {
+      "description": "Entry-point URL for re-verification of the file.",
+      "format": "uri",
+      "type": "string"
+    },
+    "qid": {
+      "description": "Wikidata QID for the jurisdiction (canonical identifier).",
+      "pattern": "^Q[1-9][0-9]*$",
+      "type": "string"
+    },
+    "rules": {
+      "description": "Routing rules from material category to bin.",
+      "items": {
+        "$ref": "#/$defs/rule"
+      },
+      "type": "array"
+    },
+    "slug": {
+      "description": "Human-readable file slug. Must match the file's directory location.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "spec_version": {
+      "const": "0.1",
+      "description": "Schema version this file conforms to.",
+      "type": "string"
+    },
+    "state": {
+      "description": "ISO 3166-2 subdivision code (without the country prefix), or null.",
+      "pattern": "^[A-Z0-9]{1,3}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification_level": {
+      "$ref": "#/$defs/verification_level"
+    }
+  },
+  "required": [
+    "spec_version",
+    "qid",
+    "slug",
+    "name",
+    "country",
+    "last_verified",
+    "verification_level",
+    "primary_source",
+    "bins",
+    "rules"
+  ],
+  "title": "binwise jurisdiction file",
+  "type": "object"
+}

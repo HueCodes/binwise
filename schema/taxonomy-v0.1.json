@@ -1,0 +1,77 @@
+{
+  "$defs": {
+    "category": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "calrecycle_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "examples": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "$ref": "#/$defs/category_id"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "calrecycle_type",
+        "aliases",
+        "examples"
+      ],
+      "type": "object"
+    },
+    "category_id": {
+      "description": "snake_case stable identifier; never renamed once published.",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "type": "string"
+    }
+  },
+  "$id": "https://binwise.dev/schema/taxonomy-v0.1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Schema for binwise material taxonomy. Anchored on the CalRecycle Material Type list. IDs are stable and never renamed once published.",
+  "properties": {
+    "categories": {
+      "items": {
+        "$ref": "#/$defs/category"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "derived_from": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "spec_version": {
+      "const": "0.1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "spec_version",
+    "derived_from",
+    "categories"
+  ],
+  "title": "binwise taxonomy v0.1",
+  "type": "object"
+}

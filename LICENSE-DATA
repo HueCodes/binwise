@@ -1,0 +1,17 @@
+The dataset in this repository — every file under `cities/`, the `taxonomy.json`
+file, and the `schema/` directory — is dedicated to the public domain under the
+Creative Commons CC0 1.0 Universal Public Domain Dedication.
+
+You may copy, modify, distribute, and use the data, including for commercial
+purposes, all without asking permission.
+
+Full license text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+The `source.source_license` field on individual rules describes the license of
+the *source page* the rule was derived from. The fact recorded in this dataset
+is always CC0; that field is informational only. Facts are not copyrightable
+under United States law (Feist Publications, Inc. v. Rural Telephone Service
+Co., 499 U.S. 340).
+
+Contributors are not lawyers and the project carries no indemnity. Use at your
+own risk.
