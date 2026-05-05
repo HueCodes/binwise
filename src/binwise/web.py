@@ -3,17 +3,31 @@ from __future__ import annotations
 import tempfile
 from pathlib import Path
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import HTMLResponse
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
 
 from . import rules as rules_module
 from .agent import sort_image
+
+# 10 sorts per hour per IP and a 10 MB upload cap. Public demo guard rails:
+# enough to let a curious visitor try the demo and a maintainer-funded API
+# key absorb the cost; small enough to make the endpoint a poor target for
+# abuse. Both numbers are anchored in SCOPE.md Phase 3.
+SORT_RATE_LIMIT = "10/hour"
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+
+limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI(
     title="binwise",
     description="Point your camera at trash. Get a verdict.",
     version="0.1.0",
 )
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -36,15 +50,23 @@ def cities() -> list[dict]:
 
 
 @app.post("/sort")
-async def sort(image: UploadFile = File(...), city: str = Form(...)) -> dict:
+@limiter.limit(SORT_RATE_LIMIT)
+async def sort(request: Request, image: UploadFile = File(...), city: str = Form(...)) -> dict:
     try:
         rules = rules_module.load_city(city)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e)) from e
 
+    body = await image.read()
+    if len(body) > MAX_UPLOAD_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Upload too large (max {MAX_UPLOAD_BYTES // (1024 * 1024)} MB).",
+        )
+
     suffix = Path(image.filename or "image.jpg").suffix or ".jpg"
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
-        tmp.write(await image.read())
+        tmp.write(body)
         tmp_path = Path(tmp.name)
 
     try:
