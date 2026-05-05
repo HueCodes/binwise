@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "binwise: open dataset of municipal recycling rules"
+type: dataset
+authors:
+  - family-names: Ryan
+    given-names: Hugh
+license: CC0-1.0
+repository-code: "https://github.com/<org>/binwise"
+keywords:
+  - recycling
+  - waste-management
+  - open-data
+  - municipal-data
+  - dataset

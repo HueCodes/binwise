@@ -1,0 +1,538 @@
+{
+  "bins": [
+    {
+      "color": "blue",
+      "id": "recycling",
+      "label": "blue bin (recycling)"
+    },
+    {
+      "color": "green",
+      "id": "compost",
+      "label": "yard waste / food waste cart"
+    },
+    {
+      "color": "gray",
+      "id": "landfill",
+      "label": "garbage cart"
+    },
+    {
+      "color": null,
+      "id": "hazardous",
+      "label": "household hazardous waste drop-off"
+    },
+    {
+      "color": null,
+      "id": "special",
+      "label": "special-handling drop-off"
+    }
+  ],
+  "country": "US",
+  "edge_cases": [
+    {
+      "bin": "landfill",
+      "item": "drinking glass",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      },
+      "why": "drinking glasses have different melting points than container glass and are explicitly rejected from recycling"
+    },
+    {
+      "bin": "landfill",
+      "item": "mirror",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      },
+      "why": "mirrors are not container glass; donate working mirrors instead"
+    },
+    {
+      "bin": "recycling",
+      "item": "envelope with plastic window",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      },
+      "why": "paper envelopes including those with plastic windows are accepted in recycling; bubble-pack envelopes are not"
+    }
+  ],
+  "last_verified": "2026-05-04",
+  "name": "Seattle",
+  "notes": "Seattle Public Utilities runs a 3-stream curbside system: recycling, food and yard waste (compost), and garbage. Food waste in compost is mandatory (since 2015). Seattle's MRF rejects items smaller than ~3 inches, so size minimums apply broadly to lids, foil, plastic items, etc. Compost accepts approved compostable bags, #7 PLA food service items, and paper items without a shiny coating; items labeled 'biodegradable' do not qualify. Motor oil has a curbside option (up to 2 labeled 1-gallon containers). Latex paint can go to garbage when fully dried, or to PaintCare for free recycling. Where Does It Go is a JS-rendered tool; the underlying rules are exposed at /api/content/taxonomy/3086/pages. API snapshot for re-verification: https://web.archive.org/web/20260505030511/https://www.seattle.gov/api/content/taxonomy/3086/pages.",
+  "primary_source": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+  "qid": "Q5083",
+  "rules": [
+    {
+      "bin": "recycling",
+      "category": "rigid_plastic_1_2",
+      "prep": "empty, screw caps back on",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "rigid_plastic_3_7",
+      "conditions": [
+        {
+          "if": "empty, clean, dry, and 3 inches or larger",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "smaller than 3 inches, dirty, or wet",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "recycling",
+      "category": "metal_can",
+      "prep": "empty, clean, dry; keep lids partially attached or push the lid into the can",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "aluminum_foil",
+      "conditions": [
+        {
+          "if": "clean and 3 inches or larger",
+          "prep": "do not ball it up",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "dirty or smaller than 3 inches",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "recycling",
+      "category": "glass_container",
+      "prep": "empty, clean, dry; lids 3 inches or larger okay; smaller lids okay only if attached to the container, otherwise in garbage",
+      "rejected_examples": [
+        "window glass",
+        "drinking glasses",
+        "ceramic dishware",
+        "mirrors"
+      ],
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "recycling",
+      "category": "paper_clean",
+      "prep": "no food residue",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "cardboard_corrugated",
+      "conditions": [
+        {
+          "if": "clean and dry",
+          "prep": "flatten; tape and labels okay to leave on",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "wet or greasy",
+          "prep": "remove tape and labels first",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "compost"
+        }
+      ]
+    },
+    {
+      "bin": "recycling",
+      "category": "carton_beverage",
+      "prep": "empty, clean, dry; plastic spouts ok, plastic caps go in garbage",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "pizza_box",
+      "prep": "remove any foil, plastic cups, or pieces first",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "paper_coated_disposable",
+      "conditions": [
+        {
+          "if": "empty, clean, and dry plastic-lined paper item (paper coffee cup, ice cream carton)",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "dirty, soiled, or wet",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "compost",
+      "category": "food_scrap",
+      "prep": "all food including meat, dairy, bones, and shells",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "paper_food_soiled",
+      "prep": "napkins, paper towels, uncoated paper plates, food-soiled paper; no shiny plastic coating (waxed paper okay if you can scratch the wax off); items contaminated with cleaning products or bodily fluids go in garbage",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "compost",
+      "category": "yard_trimming",
+      "prep": "must fit in cart with lid closed; larger amounts can be taken to a city transfer station (fees apply)",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "compostable_plastic",
+      "conditions": [
+        {
+          "if": "approved compostable bag, #7 PLA food service item, or paper item without a shiny coating",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "compost"
+        },
+        {
+          "if": "labeled 'biodegradable', dirty, or contaminated",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "compost",
+      "category": "shredded_paper",
+      "prep": "must not contain plastic; the cleanest option is dropping off at an SPU recycling event",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "plastic_film_and_bags",
+      "conditions": [
+        {
+          "if": "clean and dry plastic bag, wrap, or film (grocery bag, produce bag, bread bag, bubble wrap)",
+          "prep": "return to a participating store's bag take-back bin",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "special"
+        },
+        {
+          "if": "soiled, wet, mixed-material, or no take-back available",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "depends",
+      "category": "plastic_foam",
+      "conditions": [
+        {
+          "if": "clean Styrofoam blocks, packing sheets, or packing peanuts",
+          "prep": "schedule a free SPU Special Item pickup, drop at an SPU recycling event, or return packing peanuts to UPS or FedEx",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "special"
+        },
+        {
+          "if": "Styrofoam cups, takeout containers, meat trays, foamcore, or soiled foam",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        }
+      ]
+    },
+    {
+      "bin": "landfill",
+      "category": "diaper_and_pet_waste",
+      "prep": "bagged",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "depends",
+      "category": "paint",
+      "conditions": [
+        {
+          "if": "fully dried latex paint",
+          "prep": "leave can open or add absorbent (kitty litter, sand) until solid, then place in garbage",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "landfill"
+        },
+        {
+          "if": "wet or unused architectural paint (latex, oil, stain, varnish)",
+          "prep": "drop at a PaintCare site (free)",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "special"
+        }
+      ]
+    },
+    {
+      "bin": "depends",
+      "category": "motor_oil",
+      "conditions": [
+        {
+          "if": "small amount in a labeled 1-gallon plastic container",
+          "prep": "set out next to recycling cart for curbside pickup; max 2 containers",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "recycling"
+        },
+        {
+          "if": "larger volume or oil contaminated with solvents, bleach, or other materials",
+          "prep": "drop at a city transfer station or HHW facility",
+          "source": {
+            "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+            "publisher": "Seattle Public Utilities",
+            "retrieved": "2026-05-04",
+            "source_license": "proprietary",
+            "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+          },
+          "then_bin": "hazardous"
+        }
+      ]
+    },
+    {
+      "bin": "hazardous",
+      "category": "household_chemical",
+      "prep": "drop at a household hazardous waste facility (free); max 5-gallon containers, 50-gallon limit per trip",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "battery_household",
+      "prep": "tape the ends of each individual battery; drop at a household hazardous waste facility or city transfer station",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "battery_lithium",
+      "prep": "tape terminals; drop at a household hazardous waste facility, transfer station, or Call2Recycle location (free for rechargeable batteries)",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "electronic_small",
+      "prep": "drop via the King County Take It Back Network or schedule home pickup for a fee",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    },
+    {
+      "bin": "special",
+      "category": "electronic_large",
+      "prep": "drop via the King County Take It Back Network or a city transfer station; bulky-item pickup may be available",
+      "source": {
+        "archive_url": "https://web.archive.org/web/20260505030504/https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
+        "publisher": "Seattle Public Utilities",
+        "retrieved": "2026-05-04",
+        "source_license": "proprietary",
+        "url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go"
+      }
+    }
+  ],
+  "slug": "seattle",
+  "spec_version": "0.1",
+  "state": "WA",
+  "verification_level": "reviewed"
+}
