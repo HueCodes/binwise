@@ -46,7 +46,7 @@
       "type": "string"
     }
   },
-  "$id": "https://binwise.dev/schema/taxonomy-v0.1.json",
+  "$id": "https://HueCodes.github.io/binwise/schema/taxonomy-v0.1.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "description": "Schema for binwise material taxonomy. Anchored on the CalRecycle Material Type list. IDs are stable and never renamed once published.",

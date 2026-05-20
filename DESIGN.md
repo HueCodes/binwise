@@ -87,7 +87,7 @@ A rule routes a material category to a bin, optionally with conditions:
 
 ```json
 {
-  "category": "rigid_plastic_1_5",
+  "category": "rigid_plastic_1_2",
   "bin": "recycling",
   "prep": "rinse, replace caps, leave labels on",
   "rejected_examples": ["plastic bags", "plastic film", "styrofoam"],
@@ -163,18 +163,17 @@ The vocabulary anchors on **CalRecycle's Material Type list** (`https://www2.cal
   "derived_from": "CalRecycle Material Type list",
   "categories": [
     {
-      "id": "rigid_plastic_1_5",
-      "name": "Rigid plastic containers, resin codes #1-#5",
-      "calrecycle_type": "Other Plastic Containers",
-      "aliases": ["#1", "#2", "#3", "#4", "#5", "PET", "HDPE", "PVC", "LDPE", "PP", "polyethylene terephthalate"],
-      "examples": ["water bottle", "milk jug", "yogurt cup"],
-      "low_code": "15 01 02"
+      "id": "rigid_plastic_1_2",
+      "name": "Rigid plastic containers, resin codes #1 and #2",
+      "calrecycle_type": "PET Containers",
+      "aliases": ["#1", "#2", "PET", "HDPE", "polyethylene terephthalate"],
+      "examples": ["water bottle", "milk jug"]
     }
   ]
 }
 ```
 
-`aliases` exist so that the agent and the validator can normalize free-form identification ("PET cup", "#1 plastic") to a canonical category ID. `low_code` and similar fields (RCRA, GS1) are optional cross-references for downstream interop. We do not adopt EU LoW codes as the primary taxonomy because they're designed for regulatory tonnage reporting and are too granular for consumer routing.
+`aliases` exist so that the agent and the validator can normalize free-form identification ("PET cup", "#1 plastic") to a canonical category ID. Cross-reference fields (RCRA, GS1, EU LoW) are deliberately out of scope at v0.1 — see §11 — because the schema is `additionalProperties: false` and adding them now would force every downstream consumer to handle fields whose meaning we have not pinned down. EU LoW codes in particular are designed for regulatory tonnage reporting and are too granular for consumer routing.
 
 The taxonomy is itself a contributed artifact. New cities introduce new categories; PRs add to `taxonomy.json` and the city file in the same PR (so reviewers see why the new category is needed), but the taxonomy diff is reviewed first by the merge-gate logic — taxonomy changes need two reviewers (see §6) regardless of how trivial the city-file change is. This forces the controlled-vocabulary debate to happen explicitly rather than getting smuggled into a city PR.
 
@@ -218,7 +217,7 @@ Required fields:
 
 A jurisdiction file carries a single `verification_level`. Per-rule overrides are deferred to v0.2 — at v1, the file's level is the level of every rule in it. This avoids ambiguity at the cost of granularity (a single questionable rule downgrades the whole file's badge until corrected, which is the right pressure).
 
-- **`unverified`** — extracted by an LLM or a contributor without source-checking. Hidden from default consumer queries; visible only with `--include-unverified`. New PRs can land at this level for community follow-up; the maintainer ladders them up after review.
+- **`unverified`** — extracted by an LLM or a contributor without source-checking. Surfaced everywhere (CLI `sort`, web `/sort`, listings) with a loud warning banner; never silently hidden. New PRs can land at this level for community follow-up; the maintainer ladders them up after review.
 - **`reviewed`** — a human has read every rule in the file against its sources and confirmed they match. Reviewer GitHub handle recorded in the merge commit. CI requires at least one reviewer for `.gov` and known-hauler sources, two for any other published source, and rejects blog/forum/Reddit/AI-summary sources outright.
 - **`resident_confirmed`** — `reviewed` plus a contributor who lives in the jurisdiction has signed off. Top tier. Surfaces in CLI and web output as a badge.
 
@@ -258,7 +257,7 @@ Two distinct version numbers:
 - **`spec_version`** (in each file and in `taxonomy.json`) — declares which schema version this file conforms to. Increments on schema changes. Major for breaking, minor for additive.
 - **Dataset version** — semver tags on the repo (`v0.1.0`, `v0.2.0`, ...). Increments when we cut a release. Breaking schema change = major version bump on the dataset, even if the schema only added one optional field, because consumers will need to update.
 
-Schema is published as a JSON Schema document at a stable URI on GitHub Pages: `https://<org>.github.io/binwise/schema/v0.1.json`. Other tools can validate against our schema without depending on our code. GTFS, GeoJSON, and OpenAPI all do this; it's what turns a project's schema into a standard.
+Schema is published as a JSON Schema document at a stable URI on GitHub Pages: `https://HueCodes.github.io/binwise/schema/v0.1.json`. Other tools can validate against our schema without depending on our code. GTFS, GeoJSON, and OpenAPI all do this; it's what turns a project's schema into a standard.
 
 ---
 
@@ -267,7 +266,7 @@ Schema is published as a JSON Schema document at a stable URI on GitHub Pages: `
 v1 (now → first stable release):
 
 - **Source of truth**: GitHub repository. PRs against `main`. CI runs JSON-schema validation, taxonomy enforcement, link-checker, slug/QID consistency, source-URL classification.
-- **Consumer artifact**: tagged GitHub releases with tarballs of the validated corpus. Stable per-city URLs via GitHub Pages: `https://<org>.github.io/binwise/v0.1/cities/us/ca/san-francisco.json`.
+- **Consumer artifact**: tagged GitHub releases with tarballs of the validated corpus. Stable per-city URLs via GitHub Pages: `https://HueCodes.github.io/binwise/v0.1/cities/us/ca/san-francisco.json`.
 
 v1.1 (post first stable release):
 

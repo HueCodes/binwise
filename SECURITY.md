@@ -20,7 +20,7 @@ binwise has two attack surfaces worth thinking about:
 
 ## Reporting
 
-Use [GitHub Security Advisories](https://github.com/<org>/binwise/security/advisories/new) for private disclosure. Expect an acknowledgement within ~7 days; the project is maintained by a single person and SLAs are best-effort. For critical issues that justify out-of-band contact, the project lead's GitHub handle is in [MAINTAINERS.md](MAINTAINERS.md).
+Use [GitHub Security Advisories](https://github.com/HueCodes/binwise/security/advisories/new) for private disclosure. Expect an acknowledgement within ~7 days; the project is maintained by a single person and SLAs are best-effort. For critical issues that justify out-of-band contact, the project lead's GitHub handle is in [MAINTAINERS.md](MAINTAINERS.md).
 
 Please do not file public issues for vulnerabilities, and do not exploit any hosted demo (when it exists, it carries no user data).
 

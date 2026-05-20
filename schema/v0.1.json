@@ -218,7 +218,7 @@
       "type": "string"
     }
   },
-  "$id": "https://binwise.org/schema/v0.1.json",
+  "$id": "https://HueCodes.github.io/binwise/schema/v0.1.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "description": "A municipal recycling ruleset for one jurisdiction. See DESIGN.md.",

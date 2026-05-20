@@ -44,7 +44,7 @@
   ],
   "last_verified": "2026-05-04",
   "name": "San Francisco",
-  "notes": "Recology runs a 3-stream curbside system (recycling / compost / landfill). Compost is mandatory and accepts food-soiled paper plus B.P.I. certified compostable bags; non-bag compostable / biodegradable plastics go to landfill. Hazardous waste goes to the SF Household Hazardous Waste Facility (501 Tunnel Ave) or via free Recology pickup (Wed-Sat 8-12). Single-family-home assumption; multi-family rules may differ.",
+  "notes": "Recology runs a 3-stream curbside system (recycling / compost / landfill). Compost is mandatory and accepts food-soiled paper plus B.P.I. certified compostable bags; non-bag compostable / biodegradable plastics go to landfill. Hazardous waste either drops at the SF Household Hazardous Waste Facility (501 Tunnel Ave, Thu-Sat 8-4) or rides the free Recology home-pickup service (Wed-Sat 8-12, advance scheduling required via hhw@recology.com). Single-family-home assumption; multi-family rules may differ.",
   "primary_source": "https://www.recology.com/recology-san-francisco/what-goes-where/",
   "qid": "Q62",
   "rules": [

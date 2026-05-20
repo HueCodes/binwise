@@ -11,7 +11,7 @@ labels: city-request
 
 ## Wikidata QID
 
-<!-- Look up at wikipedia.org/wiki/<city> → "Wikidata item" in left sidebar. e.g. Q100 -->
+<!-- Look up at wikipedia.org/wiki/<city> → open the Tools menu in the right sidebar → "Wikidata item". e.g. Q100 -->
 
 ## Authoritative source you'd cite
 

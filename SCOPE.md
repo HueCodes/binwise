@@ -31,7 +31,7 @@ Goal: dataset earns trust on its own merits before any public push. Quality bar 
 - [ ] **Re-verify SF** against `recology.com/recology-san-francisco/what-goes-where/`. Read line by line. Fix drift. Convert `plastic_film_and_bags` to `depends` (clean grocery bag → store drop-off; soiled → landfill). Add Wayback `archive_url` for every source. Ladder to `verification_level: reviewed`. Record self as reviewer in commit message.
 - [ ] **Re-verify Seattle** against `seattle.gov/.../where-does-it-go-`. Same process.
 - [ ] Reserve `binwise`, `binwise-rules`, `@binwise` on PyPI and npm with placeholder packages
-- [ ] Archive CalRecycle anchor URL via Wayback; mirror the 68-type list to `docs/calrecycle-snapshot-2026-05-02.md` (facts, uncopyrightable, mirror them)
+- [ ] Archive CalRecycle anchor URL via Wayback; mirror the 68-type list to `docs/calrecycle-snapshot-2026-05-04.md` (facts, uncopyrightable, mirror them)
 - [ ] README rewrite: drop "pre-v0.1" framing; lead with wedge sentence (RecycleCheck/Earth911 explicitly named); move "dataset is the project" line above the fold
 - [ ] `CITATION.cff` for academic uptake
 - [ ] `CODE_OF_CONDUCT.md`, `SECURITY.md` (standard OSS hygiene)
