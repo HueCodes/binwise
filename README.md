@@ -29,7 +29,7 @@ The rules vary in subtle but consequential ways: a yogurt cup is recyclable in S
 |---|---|---|---|---|
 | San Francisco | US / CA | `reviewed` | 2026-05-04 | [recology.com](https://www.recology.com/recology-san-francisco/what-goes-where/) |
 | New York City | US / NY | `reviewed` | 2026-05-04 | [nyc.gov](https://www.nyc.gov/site/dsny/collection/get-rid-of.page) |
-| Seattle | US / WA | `reviewed` | 2026-05-04 | [seattle.gov](https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go) |
+| Seattle | US / WA | `reviewed` | 2026-05-19 | [seattle.gov](https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go) |
 <!-- COVERAGE-TABLE:END -->
 
 ## Disclaimer

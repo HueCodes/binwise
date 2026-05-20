@@ -65,7 +65,7 @@
       "why": "paper envelopes including those with plastic windows are accepted in recycling; bubble-pack envelopes are not"
     }
   ],
-  "last_verified": "2026-05-04",
+  "last_verified": "2026-05-19",
   "name": "Seattle",
   "notes": "Seattle Public Utilities runs a 3-stream curbside system: recycling, food and yard waste (compost), and garbage. Food waste in compost is mandatory (since 2015). Seattle's MRF rejects items smaller than ~3 inches, so size minimums apply broadly to lids, foil, plastic items, etc. Compost accepts approved compostable bags, #7 PLA food service items, and paper items without a shiny coating; items labeled 'biodegradable' do not qualify. Motor oil has a curbside option (up to 2 labeled 1-gallon containers). Latex paint can go to garbage when fully dried, or to PaintCare for free recycling. Where Does It Go is a JS-rendered tool; the underlying rules are exposed at /api/content/taxonomy/3086/pages. API snapshot for re-verification: https://web.archive.org/web/20260505030511/https://www.seattle.gov/api/content/taxonomy/3086/pages.",
   "primary_source": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/where-does-it-go",
