@@ -177,18 +177,33 @@ def _validate_one(path: Path, schema: dict, taxonomy_ids: set[str], report: Repo
         if archive_url and urlparse(archive_url).netloc.lower() not in ("web.archive.org", "www.web.archive.org"):
             report.add(path, "error", f"{loc}.archive_url must be a web.archive.org URL: {archive_url!r}")
 
+    today = date.today()
     last_v = data.get("last_verified")
     if last_v:
         try:
             d = date.fromisoformat(last_v)
-            age_days = (date.today() - d).days
+            age_days = (today - d).days
             already_unverified = data.get("verification_level") == "unverified"
-            if age_days > 730 and not already_unverified:
+            if age_days < 0:
+                report.add(path, "error", f"last_verified is in the future: {last_v}")
+            elif age_days > 730 and not already_unverified:
                 report.add(path, "error", f"last_verified is {age_days} days old (>24 months); auto-downgrade required")
             elif age_days > 365 and not already_unverified:
                 report.add(path, "warn", f"last_verified is {age_days} days old (>12 months); needs re-verification")
         except ValueError:
             report.add(path, "error", f"last_verified is not a valid ISO date: {last_v!r}")
+
+    for loc, src in _walk_sources(data):
+        retrieved = src.get("retrieved")
+        if not retrieved:
+            continue
+        try:
+            r = date.fromisoformat(retrieved)
+        except ValueError:
+            report.add(path, "error", f"{loc}.retrieved is not a valid ISO date: {retrieved!r}")
+            continue
+        if (today - r).days < 0:
+            report.add(path, "error", f"{loc}.retrieved is in the future: {retrieved}")
 
     if content != _canonical_json(data):
         report.add(path, "warn", "not in canonical JSON form; run `binwise format` to fix")

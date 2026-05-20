@@ -176,6 +176,7 @@
       "properties": {
         "archive_url": {
           "format": "uri",
+          "pattern": "^https?://",
           "type": "string"
         },
         "publisher": {
@@ -198,6 +199,7 @@
         },
         "url": {
           "format": "uri",
+          "pattern": "^https?://",
           "type": "string"
         }
       },
@@ -261,6 +263,7 @@
     "primary_source": {
       "description": "Entry-point URL for re-verification of the file.",
       "format": "uri",
+      "pattern": "^https?://",
       "type": "string"
     },
     "qid": {
