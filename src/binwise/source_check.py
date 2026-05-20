@@ -108,6 +108,13 @@ def _save_baseline(baseline: dict[str, dict]) -> None:
 
 
 def check(update: bool = False) -> list[Diff]:
+    """Compare each primary_source against its baseline hash.
+
+    Read-only by default. Pass update=True to write back the new baseline —
+    refreshing last_checked on unchanged entries, recording freshly-seen URLs,
+    and overwriting hashes when state == "changed". CI calls with update=False
+    so a scheduled run doesn't silently mutate the committed baseline.
+    """
     by_url = _collect_primary_sources()
     baseline = _load_baseline()
     new_baseline: dict[str, dict] = {}
@@ -140,18 +147,13 @@ def check(update: bool = False) -> list[Diff]:
             )
         )
 
-        # Decide what to write back to the baseline.
+        # Decide what to write back to the baseline (only used when update=True).
         # - new: always record the freshly observed hash (first-seen baseline).
         # - unchanged: refresh last_checked.
-        # - changed: only overwrite when --update; otherwise preserve old hash.
+        # - changed: overwrite with the new hash.
         # - http_error: preserve old entry verbatim if it exists.
-        if state in ("new", "unchanged"):
+        if state in ("new", "unchanged", "changed"):
             new_baseline[url] = {"hash": cur_hash, "last_checked": today, "cities": sorted(slugs)}
-        elif state == "changed":
-            if update:
-                new_baseline[url] = {"hash": cur_hash, "last_checked": today, "cities": sorted(slugs)}
-            elif last is not None:
-                new_baseline[url] = last
         elif last is not None:
             new_baseline[url] = last
 
@@ -160,7 +162,8 @@ def check(update: bool = False) -> list[Diff]:
         if url not in by_url:
             new_baseline.pop(url, None)
 
-    _save_baseline(new_baseline)
+    if update:
+        _save_baseline(new_baseline)
     return diffs
 
 

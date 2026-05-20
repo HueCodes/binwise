@@ -256,23 +256,26 @@ def validate_all() -> Report:
     return report
 
 
+def format_targets() -> list[Path]:
+    """Every JSON path subject to canonical-form enforcement.
+
+    Single source of truth for `format` and `format --check` so the two can't
+    drift apart; in particular, the check pass must look at the same set the
+    write pass would touch.
+    """
+    return [
+        *sorted(CITIES_DIR.rglob("*.json")),
+        *(p for p in (TAXONOMY_PATH, SCHEMA_PATH, TAXONOMY_SCHEMA_PATH) if p.exists()),
+    ]
+
+
 def format_all() -> list[Path]:
     changed: list[Path] = []
-    for path in sorted(CITIES_DIR.rglob("*.json")):
+    for path in format_targets():
         content = path.read_text()
         data = json.loads(content)
         canonical = _canonical_json(data)
         if content != canonical:
             path.write_text(canonical)
             changed.append(path)
-
-    for extra in (TAXONOMY_PATH, SCHEMA_PATH, TAXONOMY_SCHEMA_PATH):
-        if extra.exists():
-            content = extra.read_text()
-            data = json.loads(content)
-            canonical = _canonical_json(data)
-            if content != canonical:
-                extra.write_text(canonical)
-                changed.append(extra)
-
     return changed

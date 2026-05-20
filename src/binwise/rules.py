@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 CITIES_DIR = Path(__file__).resolve().parents[2] / "cities"
@@ -15,7 +16,12 @@ def list_cities() -> list[dict]:
     for path in sorted(CITIES_DIR.rglob("*.json")):
         try:
             data = json.loads(path.read_text())
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            # A corrupt city file would otherwise vanish from list-cities and
+            # from the web demo dropdown with no signal. CI's `binwise validate`
+            # catches malformed JSON at the schema layer; this print is the
+            # local-dev safety net for the same failure mode.
+            print(f"warning: skipping {path.relative_to(CITIES_DIR)}: {e}", file=sys.stderr)
             continue
         out.append(
             {

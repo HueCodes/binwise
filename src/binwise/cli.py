@@ -137,11 +137,11 @@ def format_cmd(check: bool) -> None:
     from . import validate as v
 
     if check:
-        non_canonical = []
-        for path in sorted(v.CITIES_DIR.rglob("*.json")):
-            content = path.read_text()
-            import json as _json
+        import json as _json
 
+        non_canonical = []
+        for path in v.format_targets():
+            content = path.read_text()
             data = _json.loads(content)
             if content != v._canonical_json(data):
                 non_canonical.append(path.relative_to(v.REPO_ROOT))
